@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#dff3e6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='34' r='24' fill='%23ee664f' stroke='%2317312b' stroke-width='4'/%3E%3Cpath d='M32 12c3-8 10-9 15-6-2 7-8 10-15 6Z' fill='%231d7b54'/%3E%3Cpath d='M17 47 47 21' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <title>果切派对</title>
+  </head>
+  <body>
+    <main id="app" class="app" data-screen="menu">
+      <canvas id="game-canvas" aria-label="切水果游戏区域"></canvas>
+
+      <header id="hud" class="hud" aria-label="游戏状态" hidden>
+        <div class="hud__stat hud__stat--score">
+          <span class="hud__label">得分</span>
+          <strong id="score-value">0</strong>
+          <span class="hud__target">/ <span id="target-value">200</span></span>
+        </div>
+        <div class="hud__timer" aria-label="剩余时间">
+          <span class="timer-icon" aria-hidden="true"></span>
+          <strong id="timer-value">02:00</strong>
+        </div>
+        <button id="pause-button" class="icon-button" type="button" aria-label="暂停游戏" title="暂停">
+          <span aria-hidden="true">Ⅱ</span>
+        </button>
+      </header>
+
+      <section id="menu-screen" class="screen screen--menu" aria-labelledby="game-title">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">切</span>
+          <div>
+            <h1 id="game-title">果切派对</h1>
+            <p>全家人的水果挑战</p>
+          </div>
+        </div>
+
+        <div class="mode-picker" aria-labelledby="mode-title">
+          <div class="section-heading">
+            <h2 id="mode-title">选择难度</h2>
+            <button id="sound-button" class="sound-button" type="button" aria-pressed="true">
+              <span aria-hidden="true">♪</span><span>声音开</span>
+            </button>
+          </div>
+          <div id="mode-list" class="mode-list"></div>
+        </div>
+
+        <details class="score-guide">
+          <summary>水果分数</summary>
+          <div id="score-list" class="score-list"></div>
+        </details>
+      </section>
+
+      <section id="countdown-screen" class="screen screen--center" aria-live="assertive" hidden>
+        <p id="countdown-value" class="countdown-value">3</p>
+      </section>
+
+      <section id="pause-screen" class="screen screen--center modal-screen" aria-labelledby="pause-title" hidden>
+        <div class="modal-panel">
+          <span class="modal-icon modal-icon--pause" aria-hidden="true">Ⅱ</span>
+          <h2 id="pause-title">休息一下</h2>
+          <div class="modal-actions">
+            <button id="resume-button" class="primary-button" type="button">继续游戏</button>
+            <button id="pause-home-button" class="secondary-button" type="button">返回首页</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="result-screen" class="screen screen--center modal-screen" aria-labelledby="result-title" hidden>
+        <div class="modal-panel result-panel">
+          <span id="result-icon" class="modal-icon" aria-hidden="true">★</span>
+          <p id="result-kicker" class="result-kicker">挑战完成</p>
+          <h2 id="result-title">太棒了！</h2>
+          <p class="result-score"><strong id="result-score">0</strong><span>分</span></p>
+          <p id="result-message" class="result-message"></p>
+          <div class="modal-actions">
+            <button id="retry-button" class="primary-button" type="button">再玩一次</button>
+            <button id="result-home-button" class="secondary-button" type="button">选择难度</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="announcer" class="sr-only" aria-live="polite"></div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

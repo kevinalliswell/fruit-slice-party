@@ -1,0 +1,30 @@
+{
+  "name": "fruit-slice-party",
+  "version": "1.0.0",
+  "description": "A cheerful, touch-friendly fruit slicing game for kids and families.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "Kevin Alliswell",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinalliswell/fruit-slice-party.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kevinalliswell/fruit-slice-party/issues"
+  },
+  "homepage": "https://github.com/kevinalliswell/fruit-slice-party#readme",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5190",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test",
+    "check": "npm test && npm run build"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}
